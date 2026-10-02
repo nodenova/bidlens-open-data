@@ -1,0 +1,8 @@
+# The data lives on Hugging Face, never here. A stray export in this folder must not be pushed.
+*.parquet
+data/
+.DS_Store
+__pycache__/
+.ruff_cache/
+.venv/
+specs/

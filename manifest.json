@@ -1,0 +1,922 @@
+{
+  "name": "bidlens-open-data",
+  "version": "2026.10",
+  "exported_at": "2026-10-02T16:11:48+00:00",
+  "licence": "CC-BY-4.0",
+  "tables": {
+    "notices": {
+      "rows": 25452313,
+      "columns": [
+        {
+          "name": "source",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ocid",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_kind",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_kind_norm",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "form",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "published",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_type",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_town",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_region",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_activity",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "description",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv_division",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "procedure",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "award_model",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "contract_nature",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "value_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "value_currency",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "lot_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "n_criteria",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_documents",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_lots",
+          "type": "BIGINT"
+        },
+        {
+          "name": "url",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "deadline",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "stage",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "tender_status",
+          "type": "VARCHAR"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "buyer_name": 404,
+        "buyer_town": 100,
+        "title": 77,
+        "description": 41529
+      },
+      "rows_by_region": {
+        "uk": 1800414,
+        "other": 23651899
+      },
+      "files": [
+        {
+          "path": "data/notices/notices-other-0.parquet",
+          "bytes": 10671621,
+          "sha256": "14c50b73697f651674f7f01ac276ebd5c1499db7d64f2258913b24d3f2fc25c7"
+        },
+        {
+          "path": "data/notices/notices-other-1.parquet",
+          "bytes": 15283330,
+          "sha256": "4565bf408dba8ff7f5daa47208decb53159ae4d734de8b05214d29f41b664b09"
+        },
+        {
+          "path": "data/notices/notices-other-2.parquet",
+          "bytes": 19456693,
+          "sha256": "bee5e10bacbe95b22a5693746cab7ef0d051774c133e8747387d67698d74420b"
+        },
+        {
+          "path": "data/notices/notices-other-3.parquet",
+          "bytes": 19911441,
+          "sha256": "d82ebd89b4de7ed3cd9d373f13ca73a4eeafda4b0d0aa5b52e2033c0f039695a"
+        },
+        {
+          "path": "data/notices/notices-other-4.parquet",
+          "bytes": 177387301,
+          "sha256": "423e3a280bd464b9ad811593a430a2578bf006e5561767bae3da21ea25a5ec77"
+        },
+        {
+          "path": "data/notices/notices-other-5.parquet",
+          "bytes": 149123837,
+          "sha256": "9bc690e7222ba7f0113c83dc4108be9903dff1f05d89f57ff0391193bcc74fb6"
+        },
+        {
+          "path": "data/notices/notices-other-6.parquet",
+          "bytes": 81856224,
+          "sha256": "b595284f7729d9d474722d86e5951750c805c113844068502f782be45e025af2"
+        },
+        {
+          "path": "data/notices/notices-other-7.parquet",
+          "bytes": 46640602,
+          "sha256": "d01770cf19515a44227501bdf10ea4983537f6eaa9b00718a79a06d36aa4534c"
+        },
+        {
+          "path": "data/notices/notices-uk-0.parquet",
+          "bytes": 30988475,
+          "sha256": "581cdb39235967fa3653fbdc71af300d05dd35b53514eb3107026c91fc5781e8"
+        },
+        {
+          "path": "data/notices/notices-uk-1.parquet",
+          "bytes": 95251724,
+          "sha256": "2482552fa3aa10852dfb7ec10b2dad615c75abd2027ccae473ff1e7a39822e9b"
+        },
+        {
+          "path": "data/notices/notices-uk-2.parquet",
+          "bytes": 93005147,
+          "sha256": "76173a265673e68d78f8e82d6ae5549b086a59349501ea4cbce910ddcf1eedcf"
+        }
+      ]
+    },
+    "criteria": {
+      "rows": 34828647,
+      "columns": [
+        {
+          "name": "source",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ocid",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "lot_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "criterion_index",
+          "type": "BIGINT"
+        },
+        {
+          "name": "criterion_type",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "description",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "weight_value",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "weight_kind",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "weight_pct",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv_division",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "published",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_kind",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "url",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "split_ok",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_lots",
+          "type": "BIGINT"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "name": 94,
+        "description": 158,
+        "buyer_name": 342
+      },
+      "rows_by_region": {
+        "uk": 2484224,
+        "other": 32344423
+      },
+      "files": [
+        {
+          "path": "data/criteria/criteria-other-0.parquet",
+          "bytes": 217020802,
+          "sha256": "b33af67b8ba701d46658fd7ebe7046303f3f77ca900982c289f09729df97475d"
+        },
+        {
+          "path": "data/criteria/criteria-other-1.parquet",
+          "bytes": 187980199,
+          "sha256": "4a7eef3212b7648c99e0d41b05d6cccad706732a120bb518c7bb436ad4fe35b5"
+        },
+        {
+          "path": "data/criteria/criteria-other-2.parquet",
+          "bytes": 30160401,
+          "sha256": "2b9fb34d3b235711b78ba945860aba16c7258924a9e6eea5e25afaadc80dba7e"
+        },
+        {
+          "path": "data/criteria/criteria-other-3.parquet",
+          "bytes": 126052897,
+          "sha256": "c19c7fedb49c4f34b553df964f162d8542dd1acd76bcdc96ab3c5b21a6a8985f"
+        },
+        {
+          "path": "data/criteria/criteria-uk-0.parquet",
+          "bytes": 18745960,
+          "sha256": "7fc93ffab2e8f6162562ed8ced960176f1576b7671c6442ef33a0e43f8e500ca"
+        }
+      ]
+    },
+    "criterion_roles": {
+      "rows": 157014,
+      "columns": [
+        {
+          "name": "name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "method",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "n_rows",
+          "type": "BIGINT"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "name": 1
+      },
+      "files": [
+        {
+          "path": "data/criterion_roles/criterion_roles-0.parquet",
+          "bytes": 2479903,
+          "sha256": "38578e8987eed7ef8602878636ba892b10f34f950e6e3e34fdda51bd8b627cd4"
+        }
+      ]
+    },
+    "outcomes": {
+      "rows": 34374398,
+      "columns": [
+        {
+          "name": "source",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ocid",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "lot_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "award_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "award_status",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "award_date",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "winner_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "winner_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "winner_country",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "winner_is_sme",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_bids",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_bids_sme",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_bids_foreign_eu",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_bids_foreign_non_eu",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_bids_electronic",
+          "type": "BIGINT"
+        },
+        {
+          "name": "lowest_bid_value",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "highest_bid_value",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "award_value",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "estimated_value",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "published",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "url",
+          "type": "VARCHAR"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "award_id": 2,
+        "winner_name": 1836,
+        "winner_id": 5,
+        "buyer_name": 17
+      },
+      "rows_by_region": {
+        "uk": 1629001,
+        "other": 32745397
+      },
+      "files": [
+        {
+          "path": "data/outcomes/outcomes-other-0.parquet",
+          "bytes": 142496153,
+          "sha256": "465d7cc16dd6e0a3fda5c2eae41507dd6486147bbe2de635706a9c0f37fb0368"
+        },
+        {
+          "path": "data/outcomes/outcomes-other-1.parquet",
+          "bytes": 151844151,
+          "sha256": "3e934104acfebcc6fbf45141f04962b8e17b3a3756d1582b0b732feaedebc2f8"
+        },
+        {
+          "path": "data/outcomes/outcomes-uk-0.parquet",
+          "bytes": 59392467,
+          "sha256": "ad843ed1d76e51dd58407d3f6587d603116c0a8dd598c1538e5423453e2ab539"
+        }
+      ]
+    },
+    "buyers": {
+      "rows": 48062,
+      "columns": [
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "method",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "n_notices",
+          "type": "BIGINT"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "buyer_name": 3,
+        "canonical_name": 3
+      },
+      "files": [
+        {
+          "path": "data/buyers/buyers-0.parquet",
+          "bytes": 1724934,
+          "sha256": "555ad5fa9c3e87ea68e343a5b74ffb01f48f6969419734802b87882890d4f81a"
+        }
+      ]
+    },
+    "suppliers": {
+      "rows": 277993,
+      "columns": [
+        {
+          "name": "winner_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "supplier_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "method",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "company_number",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "n_awards",
+          "type": "BIGINT"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "winner_name": 16,
+        "canonical_name": 15
+      },
+      "files": [
+        {
+          "path": "data/suppliers/suppliers-0.parquet",
+          "bytes": 7544774,
+          "sha256": "dc841569a50366114ded2f10620c975429bc0b3f92a02b5ce0f9b64d6e785648"
+        }
+      ]
+    },
+    "frameworks": {
+      "rows": 37506,
+      "columns": [
+        {
+          "name": "notice_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ocid",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv_division",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "published",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ceiling",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "n_suppliers",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_lots",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_award_rows",
+          "type": "BIGINT"
+        },
+        {
+          "name": "shape",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "per_supplier",
+          "type": "DOUBLE"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {},
+      "files": [
+        {
+          "path": "data/frameworks/frameworks-0.parquet",
+          "bytes": 1891360,
+          "sha256": "e97f858ce4bb6ceda8b4899840ff1f6e4e8e7b5d2e34c3e861cd8007f23157ee"
+        }
+      ]
+    },
+    "buyer_routes": {
+      "rows": 53727,
+      "columns": [
+        {
+          "name": "buyer_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "canonical_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cpv_division",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "n_awards",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_competed",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_limited",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_direct",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_framework",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_unknown",
+          "type": "BIGINT"
+        },
+        {
+          "name": "pct_competed",
+          "type": "DOUBLE"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "canonical_name": 1
+      },
+      "files": [
+        {
+          "path": "data/buyer_routes/buyer_routes-0.parquet",
+          "bytes": 658045,
+          "sha256": "c82146ecdf443562096069a0d31aa23098b9a95c47c69634178faca49d433f6c"
+        }
+      ]
+    },
+    "documents": {
+      "rows": 491621,
+      "columns": [
+        {
+          "name": "source",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ocid",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "url",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "doc_type",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "description",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "format",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "host",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "published",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        }
+      ],
+      "withheld_columns": [],
+      "emails_redacted": {
+        "description": 579
+      },
+      "files": [
+        {
+          "path": "data/documents/documents-0.parquet",
+          "bytes": 19178127,
+          "sha256": "a47ffed11ca8c12d631ac230e49c582fb9280e6f93a234b89828ae3aa611f2be"
+        }
+      ]
+    },
+    "tender_documents": {
+      "rows": 7767,
+      "columns": [
+        {
+          "name": "source",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "origin",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "url",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "member",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "host",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "notice_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "ocid",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "doc_type",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buyer_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "published",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "cited_by",
+          "type": "BIGINT"
+        },
+        {
+          "name": "content_type",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "bytes",
+          "type": "BIGINT"
+        },
+        {
+          "name": "text_chars",
+          "type": "BIGINT"
+        },
+        {
+          "name": "n_bands",
+          "type": "BIGINT"
+        },
+        {
+          "name": "bands_contiguous",
+          "type": "BIGINT"
+        },
+        {
+          "name": "rubric_score",
+          "type": "BIGINT"
+        },
+        {
+          "name": "is_rubric",
+          "type": "BIGINT"
+        },
+        {
+          "name": "scales",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "band_keywords",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "retrieved_at",
+          "type": "VARCHAR"
+        }
+      ],
+      "withheld_columns": [
+        "bands",
+        "text_head",
+        "local_path"
+      ],
+      "emails_redacted": {
+        "title": 43
+      },
+      "files": [
+        {
+          "path": "data/tender_documents/tender_documents-0.parquet",
+          "bytes": 502656,
+          "sha256": "9a03d50a81dcc472619b92f2d88e4c31589abbb022579fbf67f13b0bda29c72d"
+        }
+      ]
+    }
+  },
+  "coverage": [
+    {
+      "source": "contracts_finder",
+      "notices": 633109,
+      "first": "2016-11-18",
+      "last": "2026-09-30",
+      "criteria": null,
+      "outcomes": 575305
+    },
+    {
+      "source": "fts_api",
+      "notices": 5706,
+      "first": "2021-01-01",
+      "last": "2021-07-27",
+      "criteria": 13557,
+      "outcomes": 7132
+    },
+    {
+      "source": "fts_bulk_xml",
+      "notices": 319799,
+      "first": "2021-01-01",
+      "last": "2026-09-07",
+      "criteria": 716258,
+      "outcomes": 483918
+    },
+    {
+      "source": "ted_api",
+      "notices": 2045235,
+      "first": "2023-11-02",
+      "last": "2026-09-08",
+      "criteria": 10271001,
+      "outcomes": 21362084
+    },
+    {
+      "source": "ted_bulk",
+      "notices": 22419541,
+      "first": "2005-08-06",
+      "last": "2023-12-27",
+      "criteria": 23707142,
+      "outcomes": 11819941
+    },
+    {
+      "source": "ted_xml",
+      "notices": 28923,
+      "first": "2024-01-02",
+      "last": "2024-06-28",
+      "criteria": 120689,
+      "outcomes": 126018
+    }
+  ]
+}

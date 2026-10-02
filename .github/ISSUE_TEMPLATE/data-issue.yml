@@ -1,0 +1,36 @@
+name: Data issue
+description: A value that looks wrong, a join that loses rows, or a column that does not mean what it says.
+labels: [data]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Please check the "Read this before analysing" pitfalls in the README first; several
+        surprising numbers are documented properties of the source feeds.
+  - type: input
+    id: snapshot
+    attributes:
+      label: Snapshot
+      description: The tag you loaded, e.g. v2026.10
+    validations:
+      required: true
+  - type: input
+    id: table
+    attributes:
+      label: Table and column
+      placeholder: outcomes.n_bids
+    validations:
+      required: true
+  - type: textarea
+    id: query
+    attributes:
+      label: Query that shows it
+      description: The SQL or code you ran, and the result you got.
+      render: sql
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and why
+      description: A link to the source notice (the `url` column) helps most.

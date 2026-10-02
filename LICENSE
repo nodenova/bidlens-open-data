@@ -1,0 +1,22 @@
+BidLens Open Data
+Copyright (c) 2026 NodeNova
+
+The dataset is licensed under the Creative Commons Attribution 4.0 International licence
+(CC BY 4.0): https://creativecommons.org/licenses/by/4.0/legalcode
+
+You may share and adapt it for any purpose, including commercially, provided you give
+appropriate credit ("BidLens Open Data, NodeNova"), link to the licence, and indicate if
+changes were made.
+
+It is derived from public sector information. Keep these source attributions:
+
+- Contains public sector information licensed under the Open Government Licence v3.0
+  (Find a Tender, Contracts Finder):
+  https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+- Source: Tenders Electronic Daily, (c) European Union, https://ted.europa.eu, reused under
+  Commission Decision 2011/833/EU on the reuse of Commission documents.
+
+The example code in examples/ and tools/ is released under the MIT licence.
+
+NodeNova is not affiliated with or endorsed by the Cabinet Office, the Government Commercial
+Agency or the Publications Office of the European Union.

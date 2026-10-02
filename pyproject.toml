@@ -1,0 +1,20 @@
+[project]
+name = "bidlens-open-data"
+version = "2026.10"
+description = "Card, schema, examples and publish tooling for the BidLens Open Data snapshot"
+readme = "README.md"
+license = "MIT"
+# Readers run the examples on whatever Python they have; only the tooling here is ours.
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.1",
+    # The `hf` CLI: auth, upload, tags. Lives here so the private bidlens venv never needs it.
+    "huggingface_hub[cli]>=0.34",
+]
+
+[tool.uv]
+# Not a library: a folder of tools, so there is nothing to build or install.
+package = false
+
+[tool.ruff]
+line-length = 100

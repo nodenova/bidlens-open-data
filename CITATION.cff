@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "BidLens Open Data: UK and EU public procurement award criteria and outcomes"
+type: dataset
+authors:
+  - name: NodeNova
+version: "2026.10"
+date-released: "2026-10-31"
+license: CC-BY-4.0
+url: "https://huggingface.co/datasets/NodeNovaOrg/bidlens-open-data"
+repository: "https://github.com/nodenova/bidlens-open-data"
+keywords:
+  - public procurement
+  - tenders
+  - award criteria
+  - TED
+  - OCDS
+  - Find a Tender
+  - Contracts Finder

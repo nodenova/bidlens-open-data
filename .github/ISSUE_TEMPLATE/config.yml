@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+contact_links:
+  # An https link, not mailto: GitHub ignores the whole file when a contact link is not
+  # http(s), which would also bring blank issues back. The section gives the email address.
+  - name: Remove or correct personal data (private)
+    url: https://github.com/nodenova/bidlens-open-data#what-was-changed-or-left-out-and-why
+    about: >-
+      For a request about your own name or details, email us at info@nodenova.co.uk rather
+      than opening a public issue, so the request does not itself republish what you want
+      removed.

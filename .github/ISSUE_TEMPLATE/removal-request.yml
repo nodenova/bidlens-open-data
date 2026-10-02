@@ -1,0 +1,30 @@
+name: Removal or correction request (public)
+description: Ask for a record to be corrected or removed. For your own personal data, use the private email route instead.
+labels: [removal]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        This issue is public. If the request concerns your own name or details, close this and
+        email info@nodenova.co.uk instead (the private route on the previous page). Accepted
+        requests are applied at the next snapshot.
+  - type: input
+    id: identify
+    attributes:
+      label: Which record
+      description: The notice `url`, or the table and a key such as `notice_id`. Please do not paste personal details here.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Request
+      options:
+        - Remove
+        - Correct
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
