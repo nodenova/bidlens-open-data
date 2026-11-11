@@ -13,6 +13,10 @@ month it was cut. Load a pinned snapshot with `revision="v2026.10"`.
   `unnamed_pct` column, so the four sum to 100 per lot, and drops lots with nothing to
   classify. The data is unchanged; only the example was wrong.
 - The card asks users to say what they use the dataset for, in a discussion or an issue.
+- **The card's quick-start query now reports the same metric as query 1**: price share of
+  each lot's scored weight, averaged per authority. It used to average the weight of every
+  price criterion, including the 0% `Price` line a portal template carries beside its
+  placeholder slots, so authorities using that template read close to 0% price.
 
 ## v2026.10
 

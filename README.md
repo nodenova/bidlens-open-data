@@ -94,18 +94,32 @@ links these three things:
 import duckdb
 
 con = duckdb.connect()
-# Mean weight of price criteria, per UK authority (UK-native feeds only, see caveats)
-con.sql("""
-    SELECT b.canonical_name,
-           round(avg(c.weight_pct) FILTER (WHERE r.role = 'price'), 1) AS mean_price_weight_pct,
-           count(DISTINCT c.notice_id) AS notices
-    FROM 'hf://datasets/NodeNovaOrg/bidlens-open-data/data/criteria/*.parquet' c
-    JOIN 'hf://datasets/NodeNovaOrg/bidlens-open-data/data/buyers/*.parquet' b
-      ON b.buyer_name = c.buyer_name AND b.buyer_id IS NOT NULL
-    LEFT JOIN 'hf://datasets/NodeNovaOrg/bidlens-open-data/data/criterion_roles/*.parquet' r
-      ON r.name = c.name
-    WHERE c.source IN ('fts_bulk_xml', 'fts_api') AND c.weight_pct IS NOT NULL
-    GROUP BY b.buyer_id, b.canonical_name HAVING notices >= 10 ORDER BY notices DESC LIMIT 20
+HF = "hf://datasets/NodeNovaOrg/bidlens-open-data/data"
+# Price share of each lot's scored weight, averaged per UK authority (UK-native feeds only).
+# Lots that were not competed, and lots made only of portal placeholder slots, have no split.
+con.sql(f"""
+    WITH c AS (
+        SELECT c.source, c.notice_id, c.lot_id, c.buyer_name, c.weight_pct,
+               CASE WHEN r.role IS NOT NULL AND r.role <> 'unknown' THEN r.role
+                    WHEN c.criterion_type IN ('price', 'quality') THEN c.criterion_type
+                    ELSE 'unknown' END AS role
+        FROM '{HF}/criteria/*.parquet' c
+        LEFT JOIN '{HF}/criterion_roles/*.parquet' r ON r.name = c.name
+        WHERE c.source IN ('fts_bulk_xml', 'fts_api') AND c.weight_pct IS NOT NULL
+    ), lots AS (
+        SELECT source, notice_id, lot_id, min(buyer_name) AS buyer_name,
+               sum(CASE WHEN role = 'price' THEN weight_pct ELSE 0 END) AS price,
+               sum(CASE WHEN role IN ('quality', 'social_value') THEN weight_pct ELSE 0 END) AS other,
+               sum(CASE WHEN role IN ('unknown', 'template_slot') THEN weight_pct ELSE 0 END) AS unnamed,
+               bool_or(role IN ('not_competed', 'undisclosed', 'unsplit') AND weight_pct > 0) AS no_contest
+        FROM c GROUP BY source, notice_id, lot_id
+    )
+    SELECT b.canonical_name, count(*) AS lots,
+           round(avg(100 * price / (price + other + unnamed)), 1) AS price_share_pct
+    FROM lots JOIN '{HF}/buyers/*.parquet' b
+      ON b.buyer_name = lots.buyer_name AND b.buyer_id IS NOT NULL
+    WHERE NOT no_contest AND price + other > 0
+    GROUP BY b.buyer_id, b.canonical_name HAVING lots >= 10 ORDER BY lots DESC LIMIT 20
 """).show()
 ```
 
