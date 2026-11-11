@@ -23,25 +23,33 @@ SELECT c.*,
 FROM criteria c LEFT JOIN criterion_roles r ON r.name = c.name;
 
 -- 1. Price / quality / social value split per UK authority, averaged over lots.
---    UK-native feeds only. Lots whose scheme has a weighted non-competed or undisclosed line
---    are dropped whole, and zero-weight non-scoring lines are ignored.
+--    Metric: share of a lot's scored weight. The four columns sum to 100 per lot.
+--    UK-native feeds only. A lot with a weighted non-competed, undisclosed or unsplit line is
+--    dropped whole (there is no scheme to split). Weighted portal placeholder slots
+--    (`template_slot`, e.g. "Custom Metric") and unclassified names go to `unnamed`, and a lot
+--    made only of those is dropped: it has no split to report. Zero-weight lines change nothing.
 WITH lots AS (
-    SELECT notice_id, lot_id, buyer_name,
-           sum(weight_pct) FILTER (WHERE role = 'price')        AS price,
-           sum(weight_pct) FILTER (WHERE role = 'quality')      AS quality,
-           sum(weight_pct) FILTER (WHERE role = 'social_value') AS social_value,
-           bool_or(role IN ('not_competed', 'undisclosed', 'unsplit') AND weight_value > 0) AS no_contest
+    SELECT source, notice_id, lot_id, min(buyer_name) AS buyer_name,
+           sum(CASE WHEN role = 'price'        THEN weight_pct ELSE 0 END) AS price,
+           sum(CASE WHEN role = 'quality'      THEN weight_pct ELSE 0 END) AS quality,
+           sum(CASE WHEN role = 'social_value' THEN weight_pct ELSE 0 END) AS social_value,
+           sum(CASE WHEN role = 'unknown' OR (role = 'template_slot' AND weight_pct > 0)
+                    THEN weight_pct ELSE 0 END) AS unnamed,
+           bool_or(role IN ('not_competed', 'undisclosed', 'unsplit') AND weight_pct > 0) AS no_contest
     FROM criteria_roled
-    WHERE source IN ('fts_bulk_xml', 'fts_api') AND lot_id IS NOT NULL AND weight_pct IS NOT NULL
-    GROUP BY ALL
+    WHERE source IN ('fts_bulk_xml', 'fts_api', 'contracts_finder') AND weight_pct IS NOT NULL
+    GROUP BY source, notice_id, lot_id
+), scored AS (
+    SELECT *, price + quality + social_value + unnamed AS total
+    FROM lots WHERE NOT no_contest AND price + quality + social_value > 0
 )
 SELECT b.canonical_name,
        count(*) AS lots,
-       round(avg(coalesce(price, 0)), 1)        AS price_pct,
-       round(avg(coalesce(quality, 0)), 1)      AS quality_pct,
-       round(avg(coalesce(social_value, 0)), 1) AS social_value_pct
-FROM lots JOIN buyers b ON b.buyer_name = lots.buyer_name AND b.buyer_id IS NOT NULL
-WHERE NOT no_contest
+       round(avg(100 * price / total), 1)        AS price_pct,
+       round(avg(100 * quality / total), 1)      AS quality_pct,
+       round(avg(100 * social_value / total), 1) AS social_value_pct,
+       round(avg(100 * unnamed / total), 1)      AS unnamed_pct
+FROM scored JOIN buyers b ON b.buyer_name = scored.buyer_name AND b.buyer_id IS NOT NULL
 GROUP BY b.buyer_id, b.canonical_name
 HAVING count(*) >= 10
 ORDER BY lots DESC

@@ -66,6 +66,11 @@ Snapshot **v2026.10**, CC BY 4.0.
 - Hugging Face: <https://huggingface.co/datasets/NodeNovaOrg/bidlens-open-data>
 - GitHub (card, schema, examples): <https://github.com/nodenova/bidlens-open-data>
 
+**Using this dataset?** Tell us what for in a
+[discussion](https://huggingface.co/datasets/NodeNovaOrg/bidlens-open-data/discussions) or a
+[GitHub issue](https://github.com/nodenova/bidlens-open-data/issues/new/choose). It decides how
+often the snapshot is refreshed and what gets added next.
+
 ## Why another procurement dataset
 
 Raw procurement feeds are already open, and several good aggregations exist (the
